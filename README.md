@@ -1,19 +1,38 @@
-# Temperature Prediction with a Feedforward Neural Network
+# Temperature Prediction — St. John's, NL
 
-This project implements a neural network model to predict the temperature for the next six hours in St. John's, Newfoundland, based on historical weather data. The notebook explores and compares the performance of a simple baseline model against a custom-built feedforward neural network (NN).
+**Feedforward neural network** to predict the next 6 hours of temperature in St. John's, Newfoundland, compared against a persistence baseline.
 
-## Key Features
+![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=flat-square&logo=jupyter&logoColor=white)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-Keras-FF6F00?style=flat-square&logo=tensorflow&logoColor=white)
 
-- **Data Preprocessing**: T  `MinMaxScaler` to normalize the temperature data to a range of 0 to 1.
-- **Data Splitting**: The dataset is split into 80% for training and 20% for testing.
-- **Model Development**: A feedforward neural network with multiple hidden layers and a variable number of units is developed and trained.
-- **Baseline Models**: A simple baseline model is created, which assumes the temperature will remain the same as the last observed temperature.
-- **Performance Evaluation**: The models are verified on the test dataset using the Mean Squared Error (MSE) metric.
+---
 
-## Requirements
+## Architecture
 
-- `netCDF4`
-- `numpy`
-- `cftime`
-- `tensorflow`
-- `keras`
+```
+┌──────────────┐   netCDF    ┌─────────────┐   scale    ┌──────────────┐
+│ Environment  │ ──────────► │  Pandas     │ ─────────► │ MinMaxScaler │
+│ Canada data  │             │  features   │            └──────┬───────┘
+└──────────────┘             └─────────────┘                   │
+                                                                 ▼
+                        ┌─────────────────────────────────────────────┐
+                        │  Feedforward NN  vs  persistence baseline   │
+                        └─────────────────────────────────────────────┘
+```
+
+---
+
+## Quick start
+
+```bash
+pip install -r requirements.txt
+jupyter notebook temperature_prediction_st_johns.ipynb
+```
+
+Download netCDF weather data from [Environment Canada](https://weather.gc.ca/) for St. John's and place in `data/` before training.
+
+---
+
+## License
+
+MIT — see [LICENSE](LICENSE).
