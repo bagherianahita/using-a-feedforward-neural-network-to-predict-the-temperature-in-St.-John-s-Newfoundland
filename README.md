@@ -22,14 +22,12 @@
 
 ---
 
-## Quick start
+## Quick start (employers — ~2 min, synthetic data)
 
 ```bash
 pip install -r requirements.txt
-jupyter notebook temperature_prediction_st_johns.ipynb
+python demo.py
 ```
-
-Download netCDF weather data from [Environment Canada](https://weather.gc.ca/) for St. John's and place in `data/` before training.
 
 ---
 
