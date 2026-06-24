@@ -29,6 +29,11 @@ pip install -r requirements.txt
 python demo.py
 ```
 
+| | URL |
+|---|-----|
+| **Web UI** | _N/A — terminal demo_ |
+| **Run** | `python demo.py` (prints forecast to console) |
+
 ---
 
 ## License
