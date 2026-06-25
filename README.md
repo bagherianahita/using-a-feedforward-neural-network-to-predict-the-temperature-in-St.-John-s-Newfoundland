@@ -3,36 +3,40 @@
 **Feedforward neural network** to predict the next 6 hours of temperature in St. John's, Newfoundland, compared against a persistence baseline.
 
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=flat-square&logo=jupyter&logoColor=white)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-Keras-FF6F00?style=flat-square&logo=tensorflow&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat-square&logo=python&logoColor=white)
 
 ---
 
 ## Architecture
 
 ```
-┌──────────────┐   netCDF    ┌─────────────┐   scale    ┌──────────────┐
-│ Environment  │ ──────────► │  Pandas     │ ─────────► │ MinMaxScaler │
-│ Canada data  │             │  features   │            └──────┬───────┘
-└──────────────┘             └─────────────┘                   │
+┌──────────────┐   synthetic   ┌─────────────┐   scale    ┌──────────────┐
+│ Hourly temps │ ────────────► │  Pandas     │ ─────────► │ MinMaxScaler │
+│ (demo data)  │               │  windows    │            └──────┬───────┘
+└──────────────┘               └─────────────┘                   │
                                                                  ▼
                         ┌─────────────────────────────────────────────┐
-                        │  Feedforward NN  vs  persistence baseline   │
+                        │  MLPRegressor (feedforward NN) vs baseline    │
                         └─────────────────────────────────────────────┘
 ```
 
 ---
 
-## Quick start (employers — ~2 min, synthetic data)
+## Quick start (employers — no API keys)
 
 ```bash
 pip install -r requirements.txt
-python demo.py
+streamlit run app.py
 ```
+
+Browser demo trains on synthetic St. John's–style hourly data and shows a 6-hour forecast chart.
 
 | | URL |
 |---|-----|
-| **Web UI** | _N/A — terminal demo_ |
-| **Run** | `python demo.py` (prints forecast to console) |
+| **Web UI** | http://localhost:8507 |
+| **CLI demo** | `python demo.py` |
+
+> Uses scikit-learn `MLPRegressor` (feedforward NN) — no TensorFlow download required for the demo.
 
 ---
 
