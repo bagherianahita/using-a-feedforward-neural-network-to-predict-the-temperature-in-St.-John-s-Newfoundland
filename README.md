@@ -1,4 +1,4 @@
-# Temperature Prediction — St. John's, NL
+﻿# Temperature Prediction — St. John's, NL
 
 **Feedforward neural network** to predict the next 6 hours of temperature in St. John's, Newfoundland, compared against a persistence baseline.
 <img width="1775" height="795" alt="image" src="https://github.com/user-attachments/assets/e2e74371-5955-4dce-af4e-a5dd470e44ae" />
@@ -23,7 +23,7 @@
 
 ---
 
-## Quick start (employers — no API keys)
+## Quick start
 
 ```bash
 pip install -r requirements.txt
